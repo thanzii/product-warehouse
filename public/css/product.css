@@ -1,0 +1,32 @@
+.product-head{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.product-head p{
+    font-size:50px;
+}
+
+.add-icon{
+    font-size: large;
+}
+
+.add-btn{
+    height: fit-content;
+}
+
+.img-wrapper{
+    padding: 10px;
+    border-right: 1px solid rgba(102, 51, 0,0.5);
+}
+
+.product{
+    background-color: seashell;
+    width: 45%;
+    margin: 20px 2.5%;
+    border-radius: 10px;
+    border: 1px solid rgba(102, 51, 0,0.5);
+}
+
