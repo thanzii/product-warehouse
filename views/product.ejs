@@ -59,15 +59,15 @@
     </div>
   </div>
   <div class="row">
-    <% posts.forEach((post) => { %>
+    <% products.forEach((product) => { %>
     <div class="col-sm-6 product">
       <div class="row">
         <div class="col-sm-4 img-wrapper">
           <img width="100%" src="https://picsum.photos/200" alt="..." />
         </div>
         <div class="col-sm-8">
-          <h3><%= post.title %></h3>
-          <p><%= post.author %></p>
+          <h3><%= product.name %></h3>
+          <p><%= product.qty %></p>
         </div>
       </div>
     </div>

@@ -1,33 +1,23 @@
 var express = require("express");
 
+var mysql = require("mysql")
 
-import { initializeApp } from "firebase/app";
+var products
 
-const firebaseConfig = {
-  apiKey: "AIzaSyAtXTW_8qHGC1jsue8W54wq9PIWoHgKXDQ",
-  authDomain: "product-warehouse-2b583.firebaseapp.com",
-  projectId: "product-warehouse-2b583",
-  storageBucket: "product-warehouse-2b583.appspot.com",
-  messagingSenderId: "306214851677",
-  appId: "1:306214851677:web:0158f1555f46fb476f69b4"
-};
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: "password",
+  database: "inventory"
+});
 
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-
-const db = getFirestore(app);
-
-// Get a list of products from your database
-async function getProducts(db) {
-  const productsCol = collection(db, 'products');
-  const productSnapshot = await getDocs(productsCol);
-  const productList = productSnapshot.docs.map(doc => doc.data());
-  return productList;
-}
-
-const products = getProducts(db)
-
-console.log(products)
+con.connect(function(err) {
+  if (err) throw err;
+  con.query("SELECT * FROM products", function (err, result, fields) {
+    if (err) throw err;
+     products = result ;
+  });
+});
 
 
 var router = express.Router();
@@ -38,11 +28,11 @@ router.get("/",function(req,res){
 });
 
 router.get('/product', function (req, res, next) {
-    res.render('product', {posts: posts});
+    res.render('product', {products: products});
 });
 
 router.get('/warehouse', function (req, res, next) {
-    res.render('warehouse', {posts: posts});
+    res.render('warehouse', {products: products});
 });
 
 router.get('/aboutus', function (req, res, next) {

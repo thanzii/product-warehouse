@@ -1,0 +1,28 @@
+.aboutus-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 50px;
+}
+
+
+.aboutus-header p{
+    font-size: 50px;
+}
+
+.carousel-inner>.item>img, .carousel-inner>.item>a>img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+    line-height: 1;
+    margin:auto;
+    width: 100%; // Add this
+    }
+
+
+
+
+
+
+
