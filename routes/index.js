@@ -41,4 +41,9 @@ router.get('/aboutus', function (req, res, next) {
 });
 
 
+router.get('/login', function (req, res, next) {
+  res.render("login");
+  console.log("login page")
+});
+
 module.exports = router;
